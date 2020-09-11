@@ -14,11 +14,11 @@ function createListItemWithClass(className) {
 
   let toDoText = document.createTextNode(toDo);
 
-  let deleteLinkElement = document.createElement("a");
+  let deleteLinkElement = document.createElement("i");
   let checkInput = document.createElement("input");
   checkInput.type = "checkbox";
 
-  deleteLinkElement.setAttribute("href", "#");
+  deleteLinkElement.setAttribute("class", "fa fa-trash-o");
 
   let taskIndex = toDos.indexOf(toDo);
 
@@ -30,10 +30,6 @@ function createListItemWithClass(className) {
   } else if (className === "todo") {
     checkInput.setAttribute("onchange", "checkToDo(" + taskIndex + ")");
   }
-
-  let deleteLinkText = document.createTextNode(" Delete");
-
-  deleteLinkElement.appendChild(deleteLinkText);
 
   toDoElement.appendChild(checkInput);
   toDoElement.appendChild(toDoText);
