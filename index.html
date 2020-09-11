@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> To-Do </title>
+  <script src="https://kit.fontawesome.com/29e155d20f.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./normalize.css">
+  <link rel="stylesheet" href="./variables.css">
+  <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+  <main id="app">
+    <h1>
+      To-<span id="title">Do</span>
+    </h1>
+    <div id="box">
+      <form id="form">
+        <input type="text" placeholder="Qual sua próxima tarefa?" id="todo" name="todo">
+        <button onclick="addToDo()">
+          <i class="fas fa-plus"></i>
+          Adicionar
+        </button>
+      </form>
+    </div>
+
+    <ul id="app-list"></ul>
+  </main>
+
+  <footer>
+    <p>
+      Made with 💜 by
+      <strong>
+        Rocketseat Space-Squad
+      </strong>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
