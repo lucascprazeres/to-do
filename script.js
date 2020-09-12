@@ -7,10 +7,13 @@ const doneToDos = JSON.parse(localStorage.getItem("list_doneToDos")) || [];
 
 renderToDos();
 
+//transformar ToDo em ID, class active em todos
 function createListItemWithClass(className) {
   let toDoElement = document.createElement("li");
 
-  toDoElement.className = className;
+  toDoElement.classList.add(className);
+
+  toDoElement.id = toDo;
 
   let toDoText = document.createTextNode(toDo);
 
@@ -21,8 +24,12 @@ function createListItemWithClass(className) {
   deleteLinkElement.setAttribute("class", "fa fa-trash-o");
 
   let taskIndex = toDos.indexOf(toDo);
-
   deleteLinkElement.setAttribute("onclick", "deleteToDo(" + taskIndex + ")");
+
+  /*   deleteLinkElement.setAttribute(
+    "onclick",
+    "deleteToDo(" + toDoElement.id + ")"
+  ); */
 
   if (className === "done") {
     checkInput.setAttribute("onchange", "uncheckToDo(" + taskIndex + ")");
@@ -46,15 +53,11 @@ function renderToDos() {
 
     listElement.appendChild(toDoElement);
   }
-
   for (toDo of doneToDos) {
     const toDoElement = createListItemWithClass("done");
 
     listElement.appendChild(toDoElement);
   }
-
-  console.log('todo', toDos);
-  console.log('done', doneToDos);
 }
 
 function addToDo() {
@@ -83,8 +86,17 @@ function uncheckToDo(pos) {
   saveToStorage();
 }
 
+/* function addClassDelete(id) {
+  const removedItem = document.getElementById(id);
+  removedItem.classList.add("delete");
+} */
 
 function deleteToDo(pos) {
+  /* CHANGE POS TO ID
+     console.log(id);
+  addClassDelete(id);
+  const todoIndex = toDos.findIndex((item) => item === id);
+  toDos.splice(todoIndex, 1); */
   toDos.splice(pos, 1);
   renderToDos();
   saveToStorage();
